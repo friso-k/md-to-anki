@@ -1,10 +1,10 @@
 {
-  "name": "markdown-to-anki",
+  "name": "md-to-anki",
   "version": "1.0.0",
   "description": "Convert Markdown flashcards to an Anki import TSV.",
   "type": "module",
   "bin": {
-    "markdown-to-anki": "./src/main.js"
+    "md-to-anki": "./src/main.js"
   },
   "files": [
     "src",
