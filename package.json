@@ -1,0 +1,35 @@
+{
+  "name": "markdown-to-anki",
+  "version": "1.0.0",
+  "description": "Convert Markdown flashcards to an Anki import TSV.",
+  "type": "module",
+  "bin": {
+    "markdown-to-anki": "./src/main.js"
+  },
+  "files": [
+    "src",
+    "Readme.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/friso-k/md-to-anki.git"
+  },
+  "homepage": "https://dev.fri.so",
+  "bugs": {
+    "url": "https://github.com/friso-k/md-to-anki/issues"
+  },
+  "keywords": [
+    "anki",
+    "markdown",
+    "flashcards",
+    "cli"
+  ],
+  "scripts": {
+    "start": "node src/main.js",
+    "check": "node --check src/main.js"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "yaml": "^2.9.0"
+  }
+}
