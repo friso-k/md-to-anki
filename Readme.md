@@ -17,7 +17,7 @@ npm start -- ./cards --deck "Programming" --output programming.tsv
 When installed from npm, run it with `npx`:
 
 ```sh
-npx @dev.fri.so/md-to-anki ./cards
+npx @dev.fri.so/md-to-anki
 ```
 
 Calling it without a folder prints the help menu.
