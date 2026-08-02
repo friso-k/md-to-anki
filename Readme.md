@@ -4,18 +4,20 @@ Convert a folder of Markdown flashcards into an Anki TSV import file.
 
 ```sh
 npm install
-npm start -- ./cards
+npm start
 ```
 
-By default, the deck name is the folder name. Override it with `--deck`.
+The script requires a folder/ For this demo you can use the supplied flash cards about 'shamatha':
+```shell
+npm start ./data/shamatha-demo
+```
 By default, the output file is the deck name with a `.tsv` extension.
 
 ```sh
-npm start -- ./cards --deck "Programming" --output programming.tsv
+npm start --deck "Programming" --output programming.tsv
 ```
 
-When installed from npm, run it with `npx`:
-
+If you don't want to clone this project, just run it with npx:
 ```sh
 npx @dev.fri.so/md-to-anki
 ```
