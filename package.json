@@ -1,6 +1,6 @@
 {
   "name": "@dev.fri.so/md-to-anki",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Convert Markdown flashcards to an Anki import TSV.",
   "type": "module",
   "bin": {
