@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { marked } from "marked";
 import { parse as parseYaml } from "yaml";
 
 const createMarkdownCardError = (filePath, message) =>
@@ -85,13 +86,28 @@ const splitCardBody = (body, filePath) => {
   return { front, back };
 };
 
+const renderMarkdown = (markdown) =>
+  marked
+    .parse(markdown, {
+      async: false,
+      breaks: true,
+      gfm: true,
+    })
+    // Marked separates HTML block tags with source newlines. Those are not
+    // meaningful content breaks and must not become Anki <br> elements.
+    .replace(/>\r?\n</g, "><")
+    .trim();
+
 export const parseMarkdownCard = async (filePath) => {
   const markdown = await fs.readFile(filePath, "utf8");
   const { frontmatter, body } = extractFrontmatter(markdown, filePath);
   const metadata = parseFrontmatter(frontmatter, filePath);
 
+  const { front, back } = splitCardBody(body, filePath);
+
   return {
-    ...splitCardBody(body, filePath),
+    front: renderMarkdown(front),
+    back: renderMarkdown(back),
     tags: normalizeTags(metadata.tags, filePath),
   };
 };

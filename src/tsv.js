@@ -1,9 +1,9 @@
-const escapeTsvField = (value) =>
+const formatTsvField = (value) =>
   String(value ?? "")
-    .replaceAll("\\", "\\\\")
-    .replaceAll("\t", "\\t")
-    .replaceAll("\r", "\\r")
-    .replaceAll("\n", "\\n");
+    // Anki imports HTML because of the #html:true header below. Keep each
+    // note on one TSV row while preserving Markdown line breaks in the card.
+    .replace(/\r?\n|\r/g, "<br>")
+    .replaceAll("\t", " ");
 
 export const createTsv = (data, deckName) => {
   const header = [
@@ -23,7 +23,7 @@ export const createTsv = (data, deckName) => {
       back,
       tags.join(" "),
     ]
-      .map(escapeTsvField)
+      .map(formatTsvField)
       .join("\t"),
   );
 

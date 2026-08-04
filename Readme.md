@@ -25,8 +25,10 @@ npx @dev.fri.so/md-to-anki
 Calling it without a folder prints the help menu.
 
 Each Markdown file should contain front and back content separated by a `---`
-line. YAML frontmatter is optional, may be blank, or may contain optional
-`tags`. Card IDs are generated from the deck name and Markdown filename.
+line. The front and back are converted from Markdown to HTML before import, so
+formatting such as headings, emphasis, lists, links, code, and line breaks is
+preserved in Anki. YAML frontmatter is optional, may be blank, or may contain
+optional `tags`. Card IDs are generated from the deck name and Markdown filename.
 
 ```md
 ---

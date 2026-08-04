@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "commander": "^15.0.0",
+    "marked": "^18.0.9",
     "yaml": "^2.9.0"
   }
 }
